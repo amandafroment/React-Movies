@@ -5,8 +5,8 @@ export default function LoginPage({ setUser }) {
   const [newUser, setNewUser] = useState(undefined);
 
   function handleChange(e) {
-    const computedUser = e.target.value;
-    setNewUser(computedUser);
+    const loggedInUser = e.target.value;
+    setNewUser(loggedInUser);
   }
 
   function handleSubmit(e) {

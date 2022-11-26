@@ -1,0 +1,17 @@
+.NavBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 25px;
+  font-size: 20px;
+  border-bottom: solid 2px black;
+}
+
+.anchor {
+  color: black;
+  text-decoration: none;
+}
+
+.anchor:hover {
+  color: hotpink;
+}
