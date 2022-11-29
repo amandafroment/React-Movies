@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MovieListPage from "../MoviesListPage/MovieListPage";
 import LoginPage from "../LoginPage/LoginPage";
 import { Routes, Route } from "react-router-dom";
@@ -21,6 +21,18 @@ export default function App() {
     );
   };
 
+  const [uniqueActors, setUniqueActors] = React.useState(new Set());
+
+  useEffect(() => {
+    console.log(movies, "movies");
+    movies.map((movie, index) => {
+      movie.cast.map((actor, idx) => {
+        uniqueActors.add(actor);
+      });
+    });
+    console.log(uniqueActors, "uniqueActors");
+  }, []);
+
   return (
     <main className="App">
       {user ? (
@@ -35,7 +47,10 @@ export default function App() {
               path="/movies/:movieName"
               element={<MovieDetailPage movie={movie} />}
             />
-            <Route path="/actors" element={<ActorListPage />} />
+            <Route
+              path="/actors"
+              element={<ActorListPage uniqueActors={uniqueActors} />}
+            />
           </Routes>
         </>
       ) : (
