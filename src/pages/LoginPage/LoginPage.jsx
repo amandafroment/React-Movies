@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import "./LoginPage.css";
 
 export default function LoginPage({ setUser }) {
   const [newUser, setNewUser] = useState(undefined);
@@ -16,17 +17,25 @@ export default function LoginPage({ setUser }) {
 
   return (
     <>
-      <h1>Login Page</h1>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input
-          type="text"
-          name="userName"
-          value={newUser}
-          onChange={handleChange}
-        />
-        <button type="submit">Log In</button>
-      </form>
+      <div className="LoginPageContainer">
+        <div className="LoginPageInnerContainer">
+          <h1>Please enter your desired username below</h1>
+          <form
+            autoComplete="off"
+            onSubmit={handleSubmit}
+            className="LoginForm"
+          >
+            <label>Username</label>
+            <input
+              type="text"
+              name="userName"
+              value={newUser}
+              onChange={handleChange}
+            />
+            <button type="submit">Enter</button>
+          </form>
+        </div>
+      </div>
     </>
   );
 }
